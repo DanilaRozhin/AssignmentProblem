@@ -1,0 +1,254 @@
+[gd_scene load_steps=3 format=3 uid="uid://njgo4y14d3h1"]
+
+[ext_resource type="Script" path="res://Branch&BoundMethod/Branch&BoundMethod.gd" id="1_d3kig"]
+[ext_resource type="FontFile" uid="uid://b4gke7g8036va" path="res://Fonts/LatoBlackItalic.ttf" id="2_5tikf"]
+
+[node name="Branch&BoundMethod" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d3kig")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.321569, 0.45098, 0.584314, 1)
+
+[node name="Margins" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 25
+
+[node name="Branch&BoundMethod" type="VBoxContainer" parent="Margins"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Header" type="Label" parent="Margins/Branch&BoundMethod"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5tikf")
+theme_override_font_sizes/font_size = 30
+text = "Метод ветвей и границ"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MatrixSize" type="HBoxContainer" parent="Margins/Branch&BoundMethod"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Header" type="Label" parent="Margins/Branch&BoundMethod/MatrixSize"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5tikf")
+theme_override_font_sizes/font_size = 30
+text = "Размерность матрицы:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EditMatrixSize" type="LineEdit" parent="Margins/Branch&BoundMethod/MatrixSize"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5tikf")
+theme_override_font_sizes/font_size = 20
+alignment = 1
+virtual_keyboard_type = 2
+caret_blink = true
+
+[node name="Presets" type="OptionButton" parent="Margins/Branch&BoundMethod/MatrixSize"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5tikf")
+theme_override_font_sizes/font_size = 20
+alignment = 1
+item_count = 5
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+popup/item_2/text = "3"
+popup/item_2/id = 2
+popup/item_3/text = "4"
+popup/item_3/id = 3
+popup/item_4/text = "5"
+popup/item_4/id = 4
+
+[node name="Information" type="Label" parent="Margins/Branch&BoundMethod"]
+custom_minimum_size = Vector2(500, 25)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.305882, 0.905882, 0.596078, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5tikf")
+theme_override_font_sizes/font_size = 30
+text = "Ждём ввода размерности матрицы..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ScrollMatrix&Tree" type="ScrollContainer" parent="Margins/Branch&BoundMethod"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Matrix&Tree" type="HBoxContainer" parent="Margins/Branch&BoundMethod/ScrollMatrix&Tree"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Matrix" type="GridContainer" parent="Margins/Branch&BoundMethod/ScrollMatrix&Tree/Matrix&Tree"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 2
+
+[node name="Matrix" type="GridContainer" parent="Margins/Branch&BoundMethod/ScrollMatrix&Tree/Matrix&Tree/Matrix"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 3
+
+[node name="AdditionalColumn" type="VBoxContainer" parent="Margins/Branch&BoundMethod/ScrollMatrix&Tree/Matrix&Tree/Matrix"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="AdditionalRow" type="HBoxContainer" parent="Margins/Branch&BoundMethod/ScrollMatrix&Tree/Matrix&Tree/Matrix"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="----->" type="Label" parent="Margins/Branch&BoundMethod/ScrollMatrix&Tree/Matrix&Tree"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5tikf")
+theme_override_font_sizes/font_size = 70
+text = "----->"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tree" type="VBoxContainer" parent="Margins/Branch&BoundMethod/ScrollMatrix&Tree/Matrix&Tree"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="Margins/Branch&BoundMethod"]
+layout_mode = 2
+
+[node name="MarginsButtons" type="MarginContainer" parent="Margins/Branch&BoundMethod/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_right = 70
+
+[node name="BackSelectAlgorithm" type="Button" parent="Margins/Branch&BoundMethod/Buttons/MarginsButtons"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.964706, 0.756863, 1)
+theme_override_colors/font_hover_color = Color(0, 0.964706, 0.756863, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5tikf")
+theme_override_font_sizes/font_size = 35
+text = "Выбор алгоритма"
+flat = true
+
+[node name="StartAgain" type="Button" parent="Margins/Branch&BoundMethod/Buttons/MarginsButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.964706, 0.756863, 1)
+theme_override_colors/font_hover_color = Color(0, 0.964706, 0.756863, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5tikf")
+theme_override_font_sizes/font_size = 35
+text = "Начать заново"
+flat = true
+
+[node name="Confirm" type="Button" parent="Margins/Branch&BoundMethod/Buttons/MarginsButtons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 10
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.964706, 0.756863, 1)
+theme_override_colors/font_hover_color = Color(0, 0.964706, 0.756863, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5tikf")
+theme_override_font_sizes/font_size = 35
+text = "Начать расчёт"
+flat = true
+
+[node name="Next" type="Button" parent="Margins/Branch&BoundMethod/Buttons/MarginsButtons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 10
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.964706, 0.756863, 1)
+theme_override_colors/font_hover_color = Color(0, 0.964706, 0.756863, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_5tikf")
+theme_override_font_sizes/font_size = 35
+text = "Далее"
+flat = true
+
+[connection signal="text_changed" from="Margins/Branch&BoundMethod/MatrixSize/EditMatrixSize" to="." method="_on_edit_matrix_size_text_changed"]
+[connection signal="item_selected" from="Margins/Branch&BoundMethod/MatrixSize/Presets" to="." method="_on_presets_item_selected"]
+[connection signal="pressed" from="Margins/Branch&BoundMethod/Buttons/MarginsButtons/BackSelectAlgorithm" to="." method="_on_back_select_algorithm_pressed"]
+[connection signal="pressed" from="Margins/Branch&BoundMethod/Buttons/MarginsButtons/StartAgain" to="." method="_on_start_again_pressed"]
+[connection signal="pressed" from="Margins/Branch&BoundMethod/Buttons/MarginsButtons/Confirm" to="." method="_on_confirm_pressed"]
