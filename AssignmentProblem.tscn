@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu0dad1xld5bx"]
+
+[ext_resource type="FontFile" uid="uid://b4gke7g8036va" path="res://Fonts/LatoBlackItalic.ttf" id="1_4oqfl"]
+[ext_resource type="Script" path="res://AssignmentProblem/AssignmentProblem.gd" id="1_c7qah"]
+
+[node name="AssignmentProblem" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c7qah")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.321569, 0.45098, 0.584314, 1)
+
+[node name="Margins" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="AssignmentProblem" type="VBoxContainer" parent="Margins"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="Margins/AssignmentProblem"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.305882, 0.905882, 0.596078, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_4oqfl")
+theme_override_font_sizes/font_size = 50
+text = "Задача о назначениях"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Algorithms" type="VBoxContainer" parent="Margins/AssignmentProblem"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="HungarianAlgorithm" type="Button" parent="Margins/AssignmentProblem/Algorithms"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.964706, 0.756863, 1)
+theme_override_colors/font_hover_color = Color(0, 0.964706, 0.756863, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_4oqfl")
+theme_override_font_sizes/font_size = 40
+text = "Венгерский алгоритм"
+flat = true
+
+[node name="Branch&BoundMethod" type="Button" parent="Margins/AssignmentProblem/Algorithms"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.964706, 0.756863, 1)
+theme_override_colors/font_hover_color = Color(0, 0.964706, 0.756863, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_4oqfl")
+theme_override_font_sizes/font_size = 40
+text = "Метод ветвей и границ"
+flat = true
+
+[node name="Exit" type="Button" parent="Margins/AssignmentProblem/Algorithms"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.964706, 0.756863, 1)
+theme_override_colors/font_hover_color = Color(0, 0.964706, 0.756863, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_4oqfl")
+theme_override_font_sizes/font_size = 40
+text = "Выйти"
+flat = true
+
+[connection signal="pressed" from="Margins/AssignmentProblem/Algorithms/HungarianAlgorithm" to="." method="_on_hungarian_algorithm_pressed"]
+[connection signal="pressed" from="Margins/AssignmentProblem/Algorithms/Branch&BoundMethod" to="." method="_on_branch_bound_method_pressed"]
+[connection signal="pressed" from="Margins/AssignmentProblem/Algorithms/Exit" to="." method="_on_exit_pressed"]
